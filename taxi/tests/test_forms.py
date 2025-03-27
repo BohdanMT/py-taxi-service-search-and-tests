@@ -34,9 +34,18 @@ class TestForms(TestCase):
     def test_driver_creation_form_with_license_number(self):
         form = DriverCreationForm(data=self.driver_data)
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.cleaned_data["license_number"], self.driver_data["license_number"])
-        self.assertEqual(form.cleaned_data["first_name"], self.driver_data["first_name"])
-        self.assertEqual(form.cleaned_data["last_name"], self.driver_data["last_name"])
+        self.assertEqual(
+            form.cleaned_data["license_number"],
+            self.driver_data["license_number"]
+        )
+        self.assertEqual(
+            form.cleaned_data["first_name"],
+            self.driver_data["first_name"]
+        )
+        self.assertEqual(
+            form.cleaned_data["last_name"],
+            self.driver_data["last_name"]
+        )
 
     def test_driver_creation_form_invalid_license_number(self):
         invalid_data = self.driver_data.copy()
